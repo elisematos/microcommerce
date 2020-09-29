@@ -10,9 +10,9 @@ public class ProductDaoImpl implements ProductDao {
     public static List<Product> products = new ArrayList<>();
 
     static {
-        products.add(new Product(1, new String("Ordinateur"), 350));
-        products.add(new Product(2, new String("Planche de surf"), 600));
-        products.add(new Product(3, new String("Vélo électrique"), 1500));
+        products.add(new Product(1, new String("Ordinateur"), 350, 100));
+        products.add(new Product(2, new String("Planche de surf"), 600, 200));
+        products.add(new Product(3, new String("Vélo électrique"), 1500, 500));
     }
 
     @Override
@@ -22,11 +22,17 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product findById(int id) {
+        for (Product product : products) {
+            if(product.getId() == id){
+                return product;
+            }
+        }
         return null;
     }
 
     @Override
     public Product save(Product product) {
-        return null;
+        products.add(product);
+        return product;
     }
 }
