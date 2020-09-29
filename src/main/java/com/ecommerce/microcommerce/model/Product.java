@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-@JsonIgnoreProperties(value = {"manufacturingPrice", "id"})
+//@JsonIgnoreProperties(value = {"manufacturingPrice", "id"})
 public class Product {
     @Id
     @GeneratedValue

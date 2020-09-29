@@ -27,6 +27,12 @@ public class ProductController {
         return productDao.findById(id);
     }
 
+    //Find all product with a price greater than parameter
+    @GetMapping(value ="test/products/{priceLimit}")
+    public List<Product> requestTest(@PathVariable int priceLimit){
+        return productDao.findAnExpensiveProduct(priceLimit);
+    }
+
     //Create a new product
     @PostMapping(value="/products")
     public ResponseEntity<Void> newProduct(@RequestBody Product product){
